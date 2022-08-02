@@ -1,0 +1,18 @@
+url: https://medium.com/cambrial-capital/generalised-mining-the-lps-perspective-72dfa2d22afd
+
+Title: GENERALIZED MINING: THE LPS PERSPECTIVE
+by David Fauchier
+
+INTRODUCTION
+
+
+BACKGROUND
+Generalized Mining (or ‘mining 2.0’) has emerged as a catchall term that describes the practice of actively participating in one way or another in cryptonetworks in order to generate returns. Different people have been defining it differently, we’re going to take a very broad view on this and then zoom in.
+We recently held a Generalized Mining meetup (recap here) with our friends from CoinFund and some of the leading stakers, funds and projects in the space. We’ll leave explaining the Generalized Mining opportunity to Jake, who gave a fantastic Primer in Prague last week.
+There’s a lot to unpack here, but the key points are these:
+There is a continuum that runs from simple Bitcoin-type Proof of Work (PoW) Nakamoto Consensus models being used to secure a simple ledger through to more sophisticated Proof of Stake (PoS) and alternative consensus models securing the provisioning of public goods over cryptonetworks.There will be near infinite opportunities for participation in these, from simple PoW mining through to staking, validating, provisioning or even arbitraging (e.g. acting as a ’Keeper’ on the Maker network)The opportunities sit at the intersection of technology and finance, some are appropriate for a fund, others — we think — aren’t.
+If none of the above makes any sense, please take the time to watch the videos from the meetup (Intro, Supply-side, Role of Investors, Staking Economic Design), and read at least some of these catchily-titled posts:
+A primer on mining 2.0Livepeer cryptoeconomics as a case study of active participation in decentralized networksNotation + Blockchain Mining 2.0Crypto borrowing and staking networksAn introduction to Proof-of-Stake token yields: Assessing risks and rewards
+Also useful is CoinFund’s great graphic representation of the space. You can imagine the continuum of consensus models running left to right from Bitcoin to something like Livepeer.
+
+As a potential Limited Partner (LP) in crypto funds like these, we’ll focus the rest of this post on our perspective on Generalized Mining as an investor.

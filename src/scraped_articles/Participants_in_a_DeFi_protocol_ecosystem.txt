@@ -1,0 +1,92 @@
+url: https://vadymnesterenko.medium.com/participants-in-a-defi-protocol-ecosystem-c0fcc40e033d
+
+Title: PARTICIPANTS IN A DEFI PROTOCOL ECOSYSTEM
+by Vadym Nesterenko
+
+INTRODUCTION
+
+Participants in a DeFi protocol ecosystem
+
+The number of total DeFi users recently surged a 1.6M mark, and protocols now have hundreds of daily active users and thousands of community members on discord, telegram, and forums. But who are those users? No, not meaning the personal data, but what are their problems and motivation to use and support a particular protocol?
+Roughly, there are six major user groups in a protocol ecosystem:
+Protocol politiciansKeepers and arbitrageursProtocols, devs, and buildersLiquidity providersUsers on the demand side (e.g., borrowers, traders, premium payers)Hackers
+For a protocol, it’s vital to coordinate and balance the incentives between them to scale, preserving the system’s safety at the same time. Losing sight of any will eventually lead to systematic risk and dropping a protocol from the growth curve.
+The main goal of the article is to breakdown each user type and describe a simplified empathy map which hopefully would be helpful to product builders.
+
+1. PROTOCOL POLITICIANS
+
+Stepping on a path of progressive decentralization, a founding team should eventually resign as a sole decision-maker enabling community ownership. In practice, it means delegation of the right and the tool to govern a protocol to preserve decentralization and maintain growth and security.
+Source: Aavenomics
+A protocol politician is an individual or an entity who drives protocol changes that should help fix its flaws and suggest improvements to scale.
+Their routine usually implies crafting proposals, participating in discussions and debates on forums/discord, signaling an opinion by on-chain voting. There is no unified definition, but protocol politicians are supposed to be not direct stakeholders [team and investors], could be protocol-agnostic, which ensures an unbiased approach.
+The main question is: how to nurture protocol missionaries, but not mercenaries?
+Let’s try to understand the motivation of a protocol politician, briefly analyze governance incentive models, and define the ways of improvement.
+Motivation
+It’s complicated to decompose and to templatize the non-financial reasons why contributing to a protocol X over a protocol Y. Economic incentives are more generic and could be inherited from one protocol to another. Incentives in DeFi usually involve (1) a governance token, (2) protocol fee sharing, and (3) grants.
+
+Tokens commonly are distributed through an airdrop, liquidity mining, or a sale. Such an approach helps to broaden a token holder number and incentivize the community. However, many users buy and farm tokens with a pure speculation purpose or even if holding — enjoying a free ride. Most governance models do not offer any economic incentive except potential token price growth. Also, only a few protocols enable skin in the game, which might stimulate thoughtful decision-making.
+Source: https://jessewalden.com/progressive-decentralization-a-playbook-for-building-crypto-applications/
+The distribution of protocol fees is a pretty practical way to incentivize governance involvement. In this scenario, voters should not only consider pursuit profits maximization but a long-term protocol development.
+First of all, let’s explore the on-chain (+Snapshot) governance activity of leading DeFi protocols:
+Participation rate (total votes/circulating supply) in recent proposals
+There is no commonly accepted benchmark on good governance involvement. Most decisions are made, in fact, on a forum, and considering that most on-chain proposals are not controversial, there is no vital need for on-chain participation from a community.
+For example, MakerDAO’s on-chain participation is pretty low, however, forum activity is highly active in all market cycles.
+
+Now let’s see what the motivation to participate in governance is and what are the incentive models:
+
+There are three key components that may lead to efficient protocol governance:
+Skin in the game. A governance participant should bear the financial risk of the consequences if a protocol is governed incorrectly. Great examples are long-term lock-ups (Curve), slashing/payout from insurance fund (Aave), dilution (MakerDAO, Aave). Note: fear of loss shouldn’t be the only motivational factor;Systematic financial incentive. Revenue was always a good metric that indicates that something is run correctly. Thus, accurate governance should be rewarded in the form of protocol profit sharing. Note: it shouldn’t be the only motivational factor because decision-making may ultimately tend to short-term profit maximization;Protocol politician incentive. The two methods above are great however they don’t recognize pro-active governance participation and do not separate actual contributors from free riders. Valuable activity on forums and discord should be rewarded to retain and engage active governance contributors.
+So what can be done?
+A significant improvement area lies in recognizing active participation and disincentivizing free riding, as mentioned above. There are already several protocols that are working on incentives design for contributors on forums and discord chats. This process is recently called Governance Mining. This concept was already introduced by the community of Maker, Balancer, and Indexcoop. The main goal is to reward community members based on the contributed value measured and tracked by Cred and based on post likes and engagement, ensuring quality over quantity.
+
+Stakeholders are already willing to pay, isn’t it cool, huh?
+
+Some other approaches could be inherited to increase governance activity in general:
+Meta-governance and DAO composability. There are already indexes and voting portal aggregators that allow participating in different votings from one place or having one token. Being included in an index or listed on a voting portal aggregator can increase on-chain involvement.Allow voting in proposals using farming pool tokens (e.g., Sushiswap).Implement gas refund to those who voted on-chain (e.g., Uma).Reward the “correct” voting (e.g. Uma)Launch grant programs for protocol politicians (e.g., Compound, Yearn)
+
+2. KEEPERS AND ARBITRAGEURS
+These participants are faceless market agents whose activity is inconspicuous, but they play a vital role in healthy DeFi functioning. A substantial part of DeFi is built on top of collateral-based protocols (MakerDAO, Aave, Compound) and DEXs (Uniswap, Balancer, Curve, Sushi) that can’t operate without them. In a nutshell, keepers (liquidators) remain lending protocols solvent when the collateral value drops, repaying the system debt and arbitrageurs align prices at AMMs to the market ones.
+Source: DeFi Pulse
+The incentives are clear — liquidators can buy collateral with a discount, and arbitrageurs earn from the price difference between AMMs or centralized exchanges.
+The significance of these two roles is different, therefore, protocol solicitude for them is different as well. A DEX might not care about arbitrageurs’ availability. Their slack or inactivity doesn’t hurt the entire system, only some traders and LPs can be affected in the short-term. Eventually, someone will align the prices because there is an obvious profit opportunity.
+On the contrary, in lending protocols, if liquidators fail, the market price of collateral can reach the mark when liquidations are not profitable. It eventually causes insolvency and unpaid debt in the system — from now on, depositors cannot withdraw their capital. To mitigate this risk and handle the consequences, mechanisms to recapitalize the system were designed (token printing, safety module, reserves). Such a situation already happened several times, and there is no still strong guarantee that it won’t happen again. Protocols rely on keepers’ availability and the size of the internal insurance fund, but these measures won’t be sufficient in the case of a sharp market crash. Solvency is the key to a lending protocol prosperity.
+Is there anything a protocol can do to guarantee keepers and arbitrageurs’ availability? Usually, providing a competitive incentive fee is enough. Challenges inherent to these market players -competition, gas optimization, MEV — are not really a problem of a specific protocol. Moreover, during regular market conditions, competition is incredibly high.
+
+The scarcity of keepers’ activity is a relevant problem for newly launched protocols that don’t have much liquidity. A common practice is to offer basic bots to simplify a getting started process to bootstrap keeper infrastructure. However, usually without tuning or even a complete redesign, such bots are not competitive. UMA introduced an excellent example of liquidation incentivization. To give some context, liquidations at UMA require a few hours lock-up period that could be prolonged if the liquidation was challenged. That’s why the team needed to provide strong incentives to bootstrap robust keeper infrastructure.
+Some other keeper jobs could and should be delegated to keepers to reduce the core team’s power over the protocol.
+Source: https://keep3r.network/
+Sometimes, arbitrage and liquidations are having a mixed effect on a market causing unintentional exploits. We will talk about such use cases later on in a hacker section.
+
+3. PROTOCOLS, DEVS, AND BUILDERS
+Developers are a driving force on the DeFi and blockchain market, which are a primary source of innovation and new use cases. Today, in DeFi, most inventions are created by devs, making the market very dynamic with quick product launching. Such an approach vastly aligns with a lean startup concept. You launch a crazy idea and validate it directly through the market.
+In DeFi, attracting devs and protocols to build on top of or integrate your protocols has a more substantial meaning because it enhances network effect and composability, which is a key to growth. Efficient leverage of composability positively correlates with a key protocol metric, for instance, TVL and trading volume. Great examples are MakerDAO’s DAI, Aave, Compound, and Uniswap. So we can observe a clear correlation between the integrations and leading TVL / trading volume.
+Source: 24h Uniswap Trades %, by Origination, cDAI holders, DAI holders, aDAI holders
+Due to composability and public functions, there is less need to “partner” with other projects — protocols now can easily integrate each other, strengthening the value prop of each other.
+
+Composability level became more advanced due to deeper protocol-to-protocol (or machine-to-machine) collaboration that aims to maximize liquidity utilization, leverage rates, align similar goals making this a win-win-win situation for all stakeholders. A great example of such an approach is Yearn ecosystem.
+
+4. HACKERS
+Unfortunately, there is a high price for decentralization and enormous profits. Novel use cases, lack of security standards, flash loans, and blockchain nature complicate the anticipation of system flaws, leading to hack/bugs, causing millions in losses. In 2020, there was 1 DeFi hack every 14.6 days.
+Source: https://explore.duneanalytics.com/queries/1439#2469
+That’s rough, but sometimes hacks can provide a positive long-term effect for a suffered protocol and the whole market in general. A notable example is a Black Thursday incident that presumably affected further MakerDAO priorities, accelerating adding new collaterals and collateral types to minimize and diversify a shortfall event risk.
+As an ultimate result, this helped boost TVL, MKR holders’ profits, and more importantly, make DAI more robust.
+Source: https://explore.duneanalytics.com/queries/1439#2469
+No doubt, it’s better to avoid hacks in the first place, but how to make hackers choose a white hat rather than getting away with this keeping the stolen?
+
+A good solution was introduced by Immunefi that allows projects to place bug bounties to recruit white hackers to find vulnerabilities for a juicy reward.
+5. LPs and users on the demand side.
+A DeFi protocol is typically a two-sided marketplace where the most prominent user pairs are lender-borrower, LP-trader, premium payer- insurance capital provider, etc. In theory, it implies solving the chicken and the egg problem, however, with liquidity mining introduction, an empathy map of an LP became more apparent. Even without liquidity mining, average APYs are still very attractive for a non-crypto world with negative deposit rates.
+For example, if designing a program with target APY for stablecoins higher than Curve pools have (20%+ for stables), it won’t be such a problem to acquire capital in a recently launched protocol.
+A bad practice is to launch liquidity mining simultaneously with a product release. It won’t be possible to accurately determine why the protocol is growing — due to product/market fit or simply due to subsidization. Sooner or later, APY will be normalized, and if the value prop doesn’t work, the churn rate will grow, and to acquire users back is incredibly hard. Liquidity mining programs on leading DeFi protocols such as Compound, Curve, Uniswap were launched when these projects already were the leading ones. Liquidity mining is undoubtedly the most efficient growth hack in DeFi, but you need to have something validated to scale.
+A great quantitative framework for launching a liquidity mining program was introduced by Mechanism Capital.
+If to look at the top 5 DeFi protocols by TVL, 3 out of 5 projects don’t have liquidity mining. It brings us again to the importance of organic growth.
+Growing the demand-side of a protocol is a bit trickier. Subsidizing this user group does not make much sense because it’ll increase borrowing/premium rates, pushing away actual target users vital for organic growth.
+Do DeFi protocols acquire these users successfully? One may say that TVL is increasing thus, everything’s fine. However, it’s a vanity metric that doesn’t show an accurate picture on a protocol micro-level in this context. For example, it’s usually applied inaccurately for a lending protocol because total borrowings decrease the TVL. Also, TVL can grow simply due to the price increase of locked assets.
+For example, let’s take a look at a daily unique borrowers growth rate and total net daily borrow volume at lending protocols:
+
+Source: https://explore.duneanalytics.com/dashboard/lending
+It’s not comprehensive data to conclude a protocol performance. But one could be said for sure, the improvements in such metrics are precisely what scale a protocol and DeFi market eventually.
+
+FINAL THOUGHTS
+The community of a protocol is not homogeneous, which requires approaching each user group individually. A growth strategy and incentives should be designed to account for all interested parties. Today in DeFi, most attention is brought to LPs whose contribution is frequently over-incentivized. Each protocol personally has to define each user group’s weights and how to nurture them.
+A thought experiment: a token is an unprecedented and highly efficient coordination and incentive tool. But imagine there is no protocol token, how would you coordinate community, and what would be the growth strategy?
