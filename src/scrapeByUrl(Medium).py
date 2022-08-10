@@ -5,7 +5,7 @@ import re
 from bs4 import BeautifulSoup
 
 # switching to current running python files directory
-os.chdir('/Users/aditishastri/Desktop/DataScraping/src')
+os.chdir('/Users/aditishastri/Desktop/Polygon/DataScraping/src')
 
 
 # function to get the html of the page
@@ -62,9 +62,9 @@ def collect_text(soup):
 
 # function to save file in the current directory
 def save_file(fin):
-    if not os.path.exists('./scraped_articles'):
-        os.mkdir('./scraped_articles')
-    fname = './scraped_articles/' + '_'.join(title.split()) + '.txt'
+    if not os.path.exists('./scraped_medium_articles'):
+        os.mkdir('./scraped_medium_articles')
+    fname = './scraped_medium_articles/' + '_'.join(title.split()) + '.txt'
     with open(fname, 'w', encoding='utf8') as outfile:
         outfile.write(fin)
     print(f'File saved in directory {fname}')
