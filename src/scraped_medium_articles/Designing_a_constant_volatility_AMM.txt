@@ -1,0 +1,37 @@
+url: https://lambert-guillaume.medium.com/designing-a-constant-volatility-amm-e167278b5d61
+
+Title: DESIGNING A CONSTANT VOLATILITY AMM
+Medium
+
+INTRODUCTION
+
+
+HOW FEETIER IMPACTS TRADE VOLUMES
+In Uniswap v3, users deploying a new pool can specify a feeTier for each asset pair. The feeTier currently available are 1%, 0.3%, 0.05%, and 0.01%.
+The conventional wisdom is that a higher fee is best for exotic pairs and the 0.01% is more suitable for the most stable of pairs.
+
+How accurate is this “conventional wisdom”. In fact, shortly after the Uniswap governance activated the 1bps fee tier, we immediately saw a redirection of almost all stablecoin-stablecoin TVL and volume from the 0.05% pools to the 0.01% pool. And even though the 0.05% pools still hold about 1/3 of the total TVL for the DAI-USDC pair, 95% of the total volume is routed through the 1bps pool:
+Total value locked of the 5bps and 1bps pools. Pink line = 1bps pool creation.
+Volume partition between 1bps and 5bps after pool activation
+Interestingly, some liquidity was deployed in the ETH-USDC 1bps pool:since the creation of the 1bps fee tier, 34 LP positions have been deployed to the ETH-USDC-1bps pool (total value deployed= $15M):
+
+What was the average return of the ETH-USDC-0.01% liquidity providers? Well, not great: the median amount of collected fees is about 0.005% of the deposited amounts. And although some positions ended up with more value in USD terms, most positions gains/losses shown in the table above were due to changes in the price of ETH when the position was burned.
+This is an interesting observation: whereas the 0.05% pool is perfectly suitable for several ETH-stablecoin pairs, it seems that the yields for the 0.01% pools are insultingly low.
+Why didn’t the 1bps fee tier gain traction for non-stablecoin-stablecoin pairs? Is there something special about the 1bps fee tier that makes it non-viable for ETH-based pairs?
+Going even deeper, could an AMM with infinite liquidity implement a 0% trading fee? Well it turns out that, for one, a fee equal to zero is especially detrimental because of the path-dependent nature of geometric means (vs. arithmetic means). But Dave White et al showed that anything above zero is close to being optimal:
+The fee should therefore be set as low as possible without being zero so that rebalances are triggered by increasingly tiny price movements. Dan Robinson calls this “picking up pennies in the quantum foam.”However, when the fee is exactly zero, all the benefits of rebalancing disappear, and in most cases LPs are worse off than they would be if they just held the unrebalanced portfolio. source: Uniswap’s Financial Alchemy
+How much of that is true? First, let’s explore how the feeTier influences the transaction volume and liquidity distribution.
+
+HOW FEETIER, DAILYVOLUME AND TICKLIQUIDITY IMPACTS VOLATILITY
+We’ve derived in a previous post an expression linking the feeTier, the dailyVolume, and the tickLiquidity:
+
+In a series of tweets from last weekend, I described how this expression appears to hold across many pools in the Uniswap v3 ecosystem.
+
+Specifically, these posts show that even though the feeTier, the daily volume, and the amount of liquidity locked in a pool do vary quite a bit between pools, it appears that the “market” has figured out a way to distribute that liquidity to maintain a constant volatility between pools.
+For instance, the 1%, 0.3%, and 0.05% ETH-USDT pools all have IV equal to approximately 50% even though the volume and TVL vary greatly between pools:
+
+I made the argument that the volatility of an asset is an invariant that must remain the same across pools. This is true in part because the Uni v3 Router contract “smartly” only direct an order to the 0.05% pool only if the slippage is less than 0.3%, to the 0.3% pool only if the slippage is less than 1%, and to the 1% pool if the slippage is greater than 1%.
+As a result, the 1% pool sees a much lower number of transactions, but the slippage will be higher for each one. Similarly, the 0.05% pool is traded much more frequently but the average slippage is lower.
+
+Ultimately, the yield will be the same across fee tiers because average returns are directly related to the volatility of an asset. “Rational” market participants will recognize this will relocate liquidity from low volatility pool (ie. pools with low volume OR too much liquidity) to high volatility pools to maximize their yields.
+In the case of the 1bps ETH-USDC pool, the TVL was too low to support any kind of volume: if the 1bps and 5bps were to have the same volume, the TVL of the 1bps pool needs to be 25 times larger than the TVL of the 5bps pool.

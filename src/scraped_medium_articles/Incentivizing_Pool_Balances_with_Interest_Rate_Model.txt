@@ -1,0 +1,44 @@
+url: https://medium.com/platypus-finance/incentivizing-pool-balances-with-interest-rate-model-9302ff9f9cf4
+
+Title: INCENTIVIZING POOL BALANCES WITH INTEREST RATE MODEL
+by Platypus.finance
+
+INTRODUCTION
+
+Incentivizing Pool Balances with Interest Rate Model
+Learn about how our novel Interest Rate Model brings a new paradigm for stableswap’s incentive design!
+
+Platypus Finance is excited to announce the deployment of our Interest Rate Model in March 2022! This innovative new feature will help rebalance our liquidity pools via liquidity mining incentives — the first of its kind in DeFi!
+
+THREATS OF YIELD DIFFERENCES
+Market participants naturally chase after high yields from their investments and stablecoins are no exception. If stablecoins carry equal risks in users’ eyes, demand gravitates to those that can deliver better yields from economic activities such as staking, depositing and lending.
+This propensity has an effect on the financial robustness of Platypus where users swap stablecoins with lower interest rates for those with higher interest rates. As a result, stablecoins with lower interest rates would have higher coverage ratios and vice versa. Any persistent and significant imbalances on coverage ratios could pose a threat to the liquidity and hence solvency of Platypus’ system.
+Therefore, the dev team introduced an interest rate model to incentivize the balancing of coverage ratios among different stablecoin accounts in the pool.
+
+THE INTEREST RATE MODEL
+Recall that each stablecoin account i carries an emission weight Ei in liquidity mining. The logic is straightforward: the larger the weight, the greater the emission amount received by the account. Note that Ei is an account-level weight and is not the same as the individual-level weight W illustrated in the previous ELI5.
+With the introduction of the interest rate model, the account level weight Ei is determined by a base weight Gi and an adjustment factor i. Emissions from both Base Pool and Boosting Pool adjust according to these factors.
+The following is the formula of the final weight Ei:
+
+Here ci represents the coverage ratio of the stablecoin account i and 𝜏 is a parameter that determines the upper bound of i. Ei’s numerator is the account’s own adjusted weight size while the denominator is the total of all accounts’ adjusted weight sizes.
+The crux of the interest rate model is that each stablecoin account’s rewards emission amount improves with a higher coverage ratio, and vice versa, which incentivizes the balance of coverage ratios through emission adjustments at the account level.
+We will use the following example to demonstrate this mechanism.
+
+DEMONSTRATION
+On the popular Avalanche platforms, the average deposit APY of DAI.e is around 12% while the corresponding rate of USDC.e is around 8%. Thanks to this yield difference, users have a higher demand for DAI.e and a lower demand for USDC.e (assuming that users do not think that these two stablecoins have significant differences in risks). As a result, users would swap more USDC.e for DAI.e on Platypus. Holding the accounts’ liabilities unchanged, the coverage ratio of the DAI.e account would decrease while that of the USDC.e account would increase. Say the coverage ratio of the DAI.e account is 80% and that of the USDC.e account is 120%. The interest rate model will counteract this imbalance with adjustments in liquidity mining emissions.
+There are a total of four stablecoin accounts in Platypus’ pool. Each has a base weight of 25%. As implied by the interest rate model, we would have the following final weights.
+
+With its coverage ratio greater than 1, the USDC.e account has a much higher final weight than the other accounts. In contrast, with its coverage ratio lower than 1, the DAI.e account has a much lower weight than other accounts.
+This means that staking USDC.e delivers more liquidity mining emissions than staking DAI.e does. As a result, more users would be incentivized to swap more DAI.e for USDC.e and stake USDC. on Platypus, driving the coverage ratios of both DAI.e and USDC.e accounts closer to 1 and restoring balance between the stablecoin accounts.
+
+PROTECTION AGAINST COVERAGE RATIO MANIPULATION
+Another point to note is that the adjustment factor is capped by the parameter 𝜏, meaning that the weight of any stablecoin account won’t go insanely high even if a large amount of capital is swapped into that account. If the coverage ratio grows to infinity, the adjustment factor would be at most 0.3 given 𝜏 = 0.3. This prevents malicious users from claiming disproportionately huge rewards through manipulating the coverage ratios with abundant capital.
+
+
+KEY CONSIDERATIONS
+TLDR: How can you earn more PTP emissions with this model?
+Simply put, accounts with higher coverage ratios carry higher weights on PTP emissions. If all other factors (e.g. aggregate deposits) are similar in different stablecoin accounts, you tend to earn more PTP emissions if you deposit and stake your capital as stablecoins with higher coverage ratios.
+Whenever you have new capital to deposit on Platypus, you can first compare the coverage ratios of the stablecoin accounts.If your capital is currently in a stablecoin with a rather low coverage ratio, you can swap it into other stablecoins with higher coverage ratios and then deposit and stake it on Platypus.If all the accounts have similar deposit sizes, then you can probably earn more PTP emissions as compared to depositing the capital in the original stablecoin.
+
+COMMUNITY FEEDBACK
+We would like to hear your thoughts on this new feature! If you have any questions or concerns, share them with us via Twitter, Telegram, or Discord!
