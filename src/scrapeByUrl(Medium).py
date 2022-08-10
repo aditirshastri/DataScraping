@@ -5,7 +5,7 @@ import re
 from bs4 import BeautifulSoup
 
 # switching to current running python files directory
-os.chdir('/Users/aditishastri/Desktop/DataScrapingMedium/src')
+os.chdir('/Users/aditishastri/Desktop/DataScraping/src')
 
 
 # function to get the html of the page

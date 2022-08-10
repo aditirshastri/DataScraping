@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DataScrapingMedium.iml" filepath="$PROJECT_DIR$/DataScrapingMedium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataScraping.iml" filepath="$PROJECT_DIR$/DataScraping.iml" />
     </modules>
   </component>
 </project>
